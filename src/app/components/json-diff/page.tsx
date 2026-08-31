@@ -28,6 +28,50 @@ const after = {
   published: true,
 };
 
+const previousUser = {
+  id: 42,
+  name: "Alex",
+  email: "alex@example.com",
+  role: "developer",
+  notifications: {
+    email: true,
+    push: false,
+  },
+  theme: "light",
+};
+
+const updatedUser = {
+  id: 42,
+  name: "Alex Johnson",
+  email: "alex@example.com",
+  role: "admin",
+  notifications: {
+    email: true,
+    push: true,
+  },
+  theme: "dark",
+};
+
+const apiUpdateUsageCode = `const previousUser = await getUser(id);
+
+// Profile updated via API...
+
+const updatedUser = await getUser(id);
+
+return (
+  <JsonDiff
+    before={previousUser}
+    after={updatedUser}
+  />
+);`;
+
+const showUnchangedUsageCode = `// Display only values affected by the update:
+<JsonDiff
+  before={previousUser}
+  after={updatedUser}
+  showUnchanged={false}
+/>`;
+
 const installCommand =
   "bunx shadcn@latest add notinsect/varnus/json-diff";
 
@@ -226,6 +270,57 @@ export default function JsonDiffPage() {
               </p>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Compare an API resource update */}
+      <section className="scroll-mt-8" id="api-resource-update">
+        <div className="mb-4">
+          <h2 className="text-xl font-semibold tracking-tight">
+            Compare an API resource update
+          </h2>
+
+          <p className="mt-1 text-sm text-muted-foreground">
+            Compare an API resource before and after an update to quickly
+            identify changed, added, and removed values.
+          </p>
+        </div>
+
+        <div className="flex flex-col gap-4">
+          <div className="rounded-xl border bg-muted/20 p-4 md:p-8">
+            <div className="mx-auto max-w-3xl">
+              <div className="mb-3 flex flex-wrap items-center gap-2 text-xs">
+                <span className="rounded bg-muted/40 px-2 py-0.5 font-mono font-semibold text-foreground border">
+                  User #42
+                </span>
+                <span className="font-mono text-muted-foreground">
+                  Profile updated
+                </span>
+              </div>
+
+              <JsonDiff before={previousUser} after={updatedUser} />
+            </div>
+          </div>
+
+          <CodeBlock copyValue={apiUpdateUsageCode}>
+            {apiUpdateUsageCode}
+          </CodeBlock>
+
+          <p className="text-xs leading-5 text-muted-foreground">
+            JsonDiff can compare two versions of the same API resource, making it
+            useful for audit logs, revision history, configuration changes, and
+            debugging.
+          </p>
+
+          <div className="mt-2 flex flex-col gap-2">
+            <p className="text-xs font-medium text-foreground">
+              Display only values affected by the update
+            </p>
+
+            <CodeBlock copyValue={showUnchangedUsageCode}>
+              {showUnchangedUsageCode}
+            </CodeBlock>
+          </div>
         </div>
       </section>
 
