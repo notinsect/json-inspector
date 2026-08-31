@@ -87,6 +87,29 @@ export default function Home() {
               </p>
             </div>
           </Link>
+
+          {/* Card 3: Request / Response Viewer */}
+          <Link
+            href="/components/request-response-viewer"
+            className="group flex flex-col justify-between rounded-lg border p-5 transition-colors hover:border-foreground/40 hover:bg-muted/30"
+          >
+            <div>
+              <div className="flex items-center justify-between gap-2">
+                <h3 className="font-semibold tracking-tight text-foreground group-hover:underline">
+                  Request / Response Viewer
+                </h3>
+
+                <span className="rounded-md border bg-muted/40 px-2 py-0.5 font-mono text-xs text-muted-foreground">
+                  Available
+                </span>
+              </div>
+
+              <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                Inspect HTTP requests and responses with headers, query parameters,
+                structured bodies, status information, and sensitive-value redaction.
+              </p>
+            </div>
+          </Link>
         </div>
       </section>
     </div>

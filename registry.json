@@ -28,6 +28,20 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "request-response-viewer",
+      "type": "registry:ui",
+      "title": "Request / Response Viewer",
+      "description": "A compact HTTP request and response viewer for shadcn/ui with headers, query parameters, structured bodies, status information, copy actions, and sensitive-value redaction.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["json-inspector"],
+      "files": [
+        {
+          "path": "src/components/ui/request-response-viewer.tsx",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }

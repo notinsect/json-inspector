@@ -22,6 +22,14 @@ Expandable JSON and JavaScript diff viewer for shadcn/ui that highlights added, 
 bunx shadcn@latest add notinsect/json-inspector/json-diff
 ```
 
+### Request / Response Viewer
+
+Inspect HTTP requests and responses with headers, query parameters, structured bodies, status information, copy actions, and sensitive-value redaction.
+
+```bash
+bunx shadcn@latest add notinsect/json-inspector/request-response-viewer
+```
+
 ![JSON Inspector](./public/json-inspector.png)
 
 ## Features

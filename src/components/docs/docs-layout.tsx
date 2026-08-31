@@ -13,6 +13,10 @@ const navItems = [
     title: "JSON Diff",
     href: "/components/json-diff",
   },
+  {
+    title: "Request / Response Viewer",
+    href: "/components/request-response-viewer",
+  },
 ];
 
 export function DocsLayout({ children }: { children: React.ReactNode }) {

@@ -72,7 +72,7 @@ export default function JsonDiffPage() {
           </span>
 
           <span className="rounded-md border px-2 py-0.5 font-mono text-xs text-muted-foreground">
-            v0.2.0
+            v0.3.0
           </span>
         </div>
 
