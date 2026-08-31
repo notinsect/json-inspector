@@ -4,6 +4,24 @@ An interactive JSON and JavaScript object inspector built for [shadcn/ui](https:
 
 Inspect deeply nested data with expandable nodes, search, copy actions, circular reference handling, and support for common JavaScript data types.
 
+## Components
+
+### JSON Inspector
+
+Interactive JSON and JavaScript object inspector with search, expandable nodes, copy actions, and circular reference detection.
+
+```bash
+bunx shadcn@latest add notinsect/json-inspector/json-inspector
+```
+
+### JSON Diff
+
+Expandable JSON and JavaScript diff viewer for shadcn/ui that highlights added, removed, modified, and unchanged values.
+
+```bash
+bunx shadcn@latest add notinsect/json-inspector/json-diff
+```
+
 ![JSON Inspector](./public/json-inspector.png)
 
 ## Features

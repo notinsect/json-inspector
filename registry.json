@@ -15,6 +15,19 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "json-diff",
+      "type": "registry:ui",
+      "title": "JSON Diff",
+      "description": "An expandable JSON and JavaScript diff viewer for shadcn/ui that highlights added, removed, modified, and unchanged values.",
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "src/components/ui/json-diff.tsx",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }
