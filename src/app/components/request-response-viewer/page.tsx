@@ -97,7 +97,7 @@ export default function RequestResponseViewerPage() {
           </span>
 
           <span className="rounded-md border px-2 py-0.5 font-mono text-xs text-muted-foreground">
-            v0.3.0
+            v0.4.0
           </span>
         </div>
 
