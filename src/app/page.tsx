@@ -1,54 +1,76 @@
-const data = {
-  id: 1042,
-  title: "Example Project",
-  active: true,
-  score: 98.5,
+"use client";
 
-  metadata: null,
-  optional: undefined,
+import { JsonInspector } from "@/components/ui/json-inspector";
 
-  createdAt: new Date("2026-01-15T09:30:00.000Z"),
-  pattern: /example/gi,
+export default function Home() {
+  const data = {
+    id: 1042,
+    title: "Example Project",
+    active: true,
+    score: 98.5,
 
-  largeNumber: BigInt("9007199254740991"),
+    metadata: null,
+    optional: undefined,
 
-  greet() {
-    return "Hello, world!";
-  },
+    createdAt: new Date("2026-01-15T09:30:00.000Z"),
+    pattern: /example/gi,
 
-  emptyObject: {},
-  emptyArray: [],
+    largeNumber: BigInt("9007199254740991"),
 
-  account: {
-    username: "demo-user",
-    email: "demo@example.com",
-    verified: false,
-    preferences: {
-      language: "en",
-      timezone: "UTC",
+    greet() {
+      return "Hello, world!";
     },
-  },
 
-  projects: [
-    {
-      id: 1,
-      name: "Dashboard",
-      status: "active",
+    emptyObject: {},
+    emptyArray: [],
+
+    account: {
+      username: "demo-user",
+      email: "demo@example.com",
+      verified: false,
+      preferences: {
+        language: "en",
+        timezone: "UTC",
+      },
     },
-    {
-      id: 2,
-      name: "Mobile App",
-      status: "draft",
-    },
-  ],
 
-  map: new Map([
-    ["theme", "dark"],
-    ["language", "en"],
-    ["region", "global"],
-  ]),
+    projects: [
+      {
+        id: 1,
+        name: "Dashboard",
+        status: "active",
+      },
+      {
+        id: 2,
+        name: "Mobile App",
+        status: "draft",
+      },
+    ],
 
-  set: new Set(["React", "Next.js", "TypeScript"]),
+    map: new Map([
+      ["theme", "dark"],
+      ["language", "en"],
+      ["region", "global"],
+    ]),
 
-  error: new Error("Example error message"),
-};
+    set: new Set(["React", "Next.js", "TypeScript"]),
+
+    error: new Error("Example error message"),
+  };
+
+  return (
+    <main className="mx-auto min-h-screen w-full max-w-3xl px-6 py-10">
+      <div className="mb-6">
+        <h1 className="text-2xl font-semibold tracking-tight">
+          JSON Inspector
+        </h1>
+
+        <p className="mt-1 text-sm text-muted-foreground">
+          Interactive JSON and JavaScript object inspector.
+        </p>
+      </div>
+
+      <JsonInspector data={data} searchable defaultExpandedDepth={2} />
+    </main>
+  );
+}
