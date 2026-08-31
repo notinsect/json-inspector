@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "json-inspector",
+  "homepage": "https://github.com/notinsect/json-inspector",
+  "items": [
+    {
+      "name": "json-inspector",
+      "type": "registry:ui",
+      "title": "JSON Inspector",
+      "description": "An interactive JSON and JavaScript object inspector for shadcn/ui with search, expandable nodes, copy actions, circular reference protection, and support for common JavaScript types.",
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "src/components/ui/json-inspector.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    }
+  ]
+}
