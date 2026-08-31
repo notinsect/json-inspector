@@ -30,8 +30,6 @@ Inspect HTTP requests and responses with headers, query parameters, structured b
 bunx shadcn@latest add notinsect/varnus/request-response-viewer
 ```
 
-![JSON Inspector](./public/json-inspector.png)
-
 ## Features
 
 - Expandable and collapsible object tree
