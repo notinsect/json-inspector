@@ -1,8 +1,8 @@
-# JSON Inspector
+# Varnus
 
-An interactive JSON and JavaScript object inspector built for [shadcn/ui](https://ui.shadcn.com/).
+Components for developer-facing interfaces.
 
-Inspect deeply nested data with expandable nodes, search, copy actions, circular reference handling, and support for common JavaScript data types.
+Varnus is a growing collection of reusable [shadcn/ui](https://ui.shadcn.com/) components for inspecting, debugging, and visualizing developer data.
 
 ## Components
 

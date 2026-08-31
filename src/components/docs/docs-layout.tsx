@@ -2,22 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { COMPONENTS } from "@/lib/components";
 import { cn } from "@/lib/utils";
-
-const navItems = [
-  {
-    title: "JSON Inspector",
-    href: "/components/json-inspector",
-  },
-  {
-    title: "JSON Diff",
-    href: "/components/json-diff",
-  },
-  {
-    title: "Request / Response Viewer",
-    href: "/components/request-response-viewer",
-  },
-];
 
 export function DocsLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -27,17 +13,17 @@ export function DocsLayout({ children }: { children: React.ReactNode }) {
       {/* Mobile Header Navigation */}
       <header className="sticky top-0 z-40 flex h-14 items-center justify-between border-b bg-background/95 px-4 backdrop-blur md:hidden">
         <Link href="/" className="font-semibold tracking-tight text-foreground">
-          Developer UI
+          Varnus
         </Link>
-        <nav className="flex items-center gap-4 text-sm font-medium">
-          {navItems.map((item) => {
+        <nav className="flex items-center gap-3 overflow-x-auto text-xs font-medium scrollbar-none">
+          {COMPONENTS.map((item) => {
             const isActive = pathname === item.href;
             return (
               <Link
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "transition-colors hover:text-foreground",
+                  "whitespace-nowrap transition-colors hover:text-foreground",
                   isActive
                     ? "font-semibold text-foreground"
                     : "text-muted-foreground",
@@ -60,7 +46,7 @@ export function DocsLayout({ children }: { children: React.ReactNode }) {
                 href="/"
                 className="text-base font-semibold tracking-tight text-foreground transition-opacity hover:opacity-80"
               >
-                Developer UI
+                Varnus
               </Link>
             </div>
 
@@ -70,7 +56,7 @@ export function DocsLayout({ children }: { children: React.ReactNode }) {
                 Components
               </div>
 
-              {navItems.map((item) => {
+              {COMPONENTS.map((item) => {
                 const isActive = pathname === item.href;
                 return (
                   <Link
@@ -93,7 +79,7 @@ export function DocsLayout({ children }: { children: React.ReactNode }) {
 
         {/* Main Content Area */}
         <main className="flex-1 min-w-0">
-          <div className="mx-auto w-full max-w-4xl px-6 py-8 md:px-10 md:py-12">
+          <div className="mx-auto w-full max-w-4xl px-4 py-6 md:px-10 md:py-12">
             {children}
           </div>
         </main>

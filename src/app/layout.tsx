@@ -14,9 +14,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Developer UI — Components for developer interfaces",
+  title: {
+    default: "Varnus",
+    template: "%s – Varnus",
+  },
   description:
-    "A collection of reusable shadcn/ui components for debugging, inspecting, and visualizing developer data.",
+    "A collection of reusable shadcn/ui components for inspecting, debugging, and visualizing developer data.",
 };
 
 export default function RootLayout({

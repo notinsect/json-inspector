@@ -68,6 +68,10 @@ export default function JsonDiffPage() {
           </h1>
 
           <span className="rounded-md border bg-muted/40 px-2 py-0.5 font-mono text-xs text-muted-foreground">
+            Available
+          </span>
+
+          <span className="rounded-md border bg-muted/40 px-2 py-0.5 font-mono text-xs text-muted-foreground">
             registry:ui
           </span>
 

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ExternalLink } from "lucide-react";
+import { COMPONENTS } from "@/lib/components";
 
 export default function Home() {
   return (
@@ -11,8 +12,8 @@ export default function Home() {
         </h1>
 
         <p className="max-w-2xl text-base leading-7 text-muted-foreground md:text-lg">
-          A collection of reusable shadcn/ui components for debugging,
-          inspecting, and visualizing developer data.
+          A collection of reusable shadcn/ui components for inspecting,
+          debugging, and visualizing developer data.
         </p>
 
         <div className="mt-2 flex flex-wrap items-center gap-3">
@@ -42,74 +43,29 @@ export default function Home() {
         </div>
 
         <div className="grid gap-4 sm:grid-cols-2">
-          {/* Card 1: JSON Inspector */}
-          <Link
-            href="/components/json-inspector"
-            className="group flex flex-col justify-between rounded-lg border p-5 transition-colors hover:border-foreground/40 hover:bg-muted/30"
-          >
-            <div>
-              <div className="flex items-center justify-between gap-2">
-                <h3 className="font-semibold tracking-tight text-foreground group-hover:underline">
-                  JSON Inspector
-                </h3>
+          {COMPONENTS.map((item) => (
+            <Link
+              key={item.slug}
+              href={item.href}
+              className="group flex flex-col justify-between rounded-lg border p-5 transition-colors hover:border-foreground/40 hover:bg-muted/30"
+            >
+              <div>
+                <div className="flex items-center justify-between gap-2">
+                  <h3 className="font-semibold tracking-tight text-foreground group-hover:underline">
+                    {item.title}
+                  </h3>
 
-                <span className="rounded-md border bg-muted/40 px-2 py-0.5 font-mono text-xs text-muted-foreground">
-                  Available
-                </span>
+                  <span className="rounded-md border bg-muted/40 px-2 py-0.5 font-mono text-xs text-muted-foreground capitalize">
+                    {item.status}
+                  </span>
+                </div>
+
+                <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                  {item.description}
+                </p>
               </div>
-
-              <p className="mt-2 text-sm leading-6 text-muted-foreground">
-                Inspect nested JSON and JavaScript values with search, expandable
-                nodes, copy actions, and circular reference detection.
-              </p>
-            </div>
-          </Link>
-
-          {/* Card 2: JSON Diff */}
-          <Link
-            href="/components/json-diff"
-            className="group flex flex-col justify-between rounded-lg border p-5 transition-colors hover:border-foreground/40 hover:bg-muted/30"
-          >
-            <div>
-              <div className="flex items-center justify-between gap-2">
-                <h3 className="font-semibold tracking-tight text-foreground group-hover:underline">
-                  JSON Diff
-                </h3>
-
-                <span className="rounded-md border bg-muted/40 px-2 py-0.5 font-mono text-xs text-muted-foreground">
-                  Available
-                </span>
-              </div>
-
-              <p className="mt-2 text-sm leading-6 text-muted-foreground">
-                Compare two JSON or JavaScript values and visualize added, removed,
-                and modified data.
-              </p>
-            </div>
-          </Link>
-
-          {/* Card 3: Request / Response Viewer */}
-          <Link
-            href="/components/request-response-viewer"
-            className="group flex flex-col justify-between rounded-lg border p-5 transition-colors hover:border-foreground/40 hover:bg-muted/30"
-          >
-            <div>
-              <div className="flex items-center justify-between gap-2">
-                <h3 className="font-semibold tracking-tight text-foreground group-hover:underline">
-                  Request / Response Viewer
-                </h3>
-
-                <span className="rounded-md border bg-muted/40 px-2 py-0.5 font-mono text-xs text-muted-foreground">
-                  Available
-                </span>
-              </div>
-
-              <p className="mt-2 text-sm leading-6 text-muted-foreground">
-                Inspect HTTP requests and responses with headers, query parameters,
-                structured bodies, status information, and sensitive-value redaction.
-              </p>
-            </div>
-          </Link>
+            </Link>
+          ))}
         </div>
       </section>
     </div>
