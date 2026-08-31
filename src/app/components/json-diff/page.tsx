@@ -28,47 +28,57 @@ const after = {
   published: true,
 };
 
-const previousUser = {
-  id: 42,
-  name: "Alex",
-  email: "alex@example.com",
-  role: "developer",
-  notifications: {
-    email: true,
-    push: false,
+const baseConfig = {
+  environment: "staging",
+  debug: true,
+  api: {
+    timeout: 3000,
+    retries: 2,
   },
-  theme: "light",
+  features: {
+    analytics: false,
+    newDashboard: false,
+  },
 };
 
-const updatedUser = {
-  id: 42,
-  name: "Alex Johnson",
-  email: "alex@example.com",
-  role: "admin",
-  notifications: {
-    email: true,
-    push: true,
+const pullRequestConfig = {
+  environment: "production",
+  debug: false,
+  api: {
+    timeout: 5000,
+    retries: 3,
   },
-  theme: "dark",
+  features: {
+    analytics: true,
+    newDashboard: false,
+  },
 };
 
-const apiUpdateUsageCode = `const previousUser = await getUser(id);
+const prDiffUsageCode = `const baseConfig = {
+  environment: "staging",
+  debug: true,
+  api: { timeout: 3000, retries: 2 },
+  features: { analytics: false, newDashboard: false },
+};
 
-// Profile updated via API...
-
-const updatedUser = await getUser(id);
+const pullRequestConfig = {
+  environment: "production",
+  debug: false,
+  api: { timeout: 5000, retries: 3 },
+  features: { analytics: true, newDashboard: false },
+};
 
 return (
   <JsonDiff
-    before={previousUser}
-    after={updatedUser}
+    before={baseConfig}
+    after={pullRequestConfig}
   />
 );`;
 
-const showUnchangedUsageCode = `// Display only values affected by the update:
+const showUnchangedUsageCode = `// For code-review interfaces, hide unchanged values:
 <JsonDiff
-  before={previousUser}
-  after={updatedUser}
+  before={baseConfig}
+  after={pullRequestConfig}
   showUnchanged={false}
 />`;
 
@@ -273,16 +283,16 @@ export default function JsonDiffPage() {
         </div>
       </section>
 
-      {/* Compare an API resource update */}
-      <section className="scroll-mt-8" id="api-resource-update">
+      {/* Review a configuration change */}
+      <section className="scroll-mt-8" id="config-change-review">
         <div className="mb-4">
           <h2 className="text-xl font-semibold tracking-tight">
-            Compare an API resource update
+            Review a configuration change
           </h2>
 
           <p className="mt-1 text-sm text-muted-foreground">
-            Compare an API resource before and after an update to quickly
-            identify changed, added, and removed values.
+            Compare structured configuration before and after a pull request to
+            quickly identify what changed.
           </p>
         </div>
 
@@ -290,31 +300,36 @@ export default function JsonDiffPage() {
           <div className="rounded-xl border bg-muted/20 p-4 md:p-8">
             <div className="mx-auto max-w-3xl">
               <div className="mb-3 flex flex-wrap items-center gap-2 text-xs">
-                <span className="rounded bg-muted/40 px-2 py-0.5 font-mono font-semibold text-foreground border">
-                  User #42
+                <span className="rounded border bg-muted/40 px-2 py-0.5 font-mono font-semibold text-foreground">
+                  Pull Request #128
                 </span>
                 <span className="font-mono text-muted-foreground">
-                  Profile updated
+                  Update production configuration
+                </span>
+                <span className="rounded border bg-muted/20 px-2 py-0.5 font-mono text-muted-foreground">
+                  config.json
                 </span>
               </div>
 
-              <JsonDiff before={previousUser} after={updatedUser} />
+              <JsonDiff
+                before={baseConfig}
+                after={pullRequestConfig}
+                defaultExpandedDepth={2}
+              />
             </div>
           </div>
 
-          <CodeBlock copyValue={apiUpdateUsageCode}>
-            {apiUpdateUsageCode}
+          <CodeBlock copyValue={prDiffUsageCode}>
+            {prDiffUsageCode}
           </CodeBlock>
 
           <p className="text-xs leading-5 text-muted-foreground">
-            JsonDiff can compare two versions of the same API resource, making it
-            useful for audit logs, revision history, configuration changes, and
-            debugging.
+            JsonDiff can visualize structured changes from code-review workflows, CI/CD pipelines, infrastructure configuration, feature flags, and package revisions. Once your application has the base and pull-request versions of a JSON file, pass the parsed values directly to the component.
           </p>
 
           <div className="mt-2 flex flex-col gap-2">
             <p className="text-xs font-medium text-foreground">
-              Display only values affected by the update
+              For code-review interfaces, you can hide unchanged values:
             </p>
 
             <CodeBlock copyValue={showUnchangedUsageCode}>
