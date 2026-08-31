@@ -38,6 +38,65 @@ const sampleResponse = {
   },
 };
 
+const apiRequest = {
+  method: "GET",
+  url: "https://jsonplaceholder.typicode.com/posts/1",
+  headers: {
+    Accept: "application/json",
+  },
+};
+
+const apiResponse = {
+  status: 200,
+  statusText: "OK",
+  headers: {
+    "Content-Type": "application/json; charset=utf-8",
+  },
+  body: {
+    userId: 1,
+    id: 1,
+    title:
+      "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+    body:
+      "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto",
+  },
+  duration: 124,
+};
+
+const apiReqResUsageCode = `const start = performance.now();
+
+const res = await fetch("https://jsonplaceholder.typicode.com/posts/1", {
+  headers: {
+    Accept: "application/json",
+  },
+});
+
+const body = await res.json();
+const duration = Math.round(performance.now() - start);
+
+const request = {
+  method: "GET",
+  url: "https://jsonplaceholder.typicode.com/posts/1",
+  headers: {
+    Accept: "application/json",
+  },
+};
+
+const response = {
+  status: res.status,
+  statusText: res.statusText,
+  headers: Object.fromEntries(res.headers.entries()),
+  body,
+  duration,
+};
+
+return (
+  <RequestResponseViewer
+    request={request}
+    response={response}
+  />
+);`;
+
 const usageCode = `import { RequestResponseViewer } from "@/components/ui/request-response-viewer"
 
 const request = {
@@ -258,6 +317,50 @@ export default function RequestResponseViewerPage() {
               </p>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Inspect an API request and response */}
+      <section className="scroll-mt-8" id="api-request-response">
+        <div className="mb-4">
+          <h2 className="text-xl font-semibold tracking-tight">
+            Inspect an API request and response
+          </h2>
+
+          <p className="mt-1 text-sm text-muted-foreground">
+            Visualize an HTTP request and its response, including headers,
+            structured body data, status information, and request duration.
+          </p>
+        </div>
+
+        <div className="flex flex-col gap-4">
+          <div className="rounded-xl border bg-muted/20 p-4 md:p-8">
+            <div className="mx-auto max-w-3xl">
+              <RequestResponseViewer
+                request={apiRequest}
+                response={apiResponse}
+              />
+            </div>
+          </div>
+
+          <CodeBlock copyValue={apiReqResUsageCode}>
+            {apiReqResUsageCode}
+          </CodeBlock>
+
+          <p className="text-xs leading-5 text-muted-foreground">
+            RequestResponseViewer is a UI viewer component for developer tools,
+            API clients, webhook dashboards, and request logs. It displays
+            request and response metadata collected by your application (duration values are illustrative example data). Sample API data from{" "}
+            <a
+              href="https://jsonplaceholder.typicode.com/"
+              target="_blank"
+              rel="noreferrer"
+              className="font-medium text-foreground underline underline-offset-4 transition-colors hover:text-foreground/80"
+            >
+              JSONPlaceholder
+            </a>
+            .
+          </p>
         </div>
       </section>
 
