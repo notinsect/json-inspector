@@ -58,6 +58,37 @@ const demoData = {
   error: new Error("Example error message"),
 };
 
+const apiUserData = {
+  id: 1,
+  name: "Leanne Graham",
+  username: "Bret",
+  email: "Sincere@april.biz",
+  address: {
+    street: "Kulas Light",
+    suite: "Apt. 556",
+    city: "Gwenborough",
+    zipcode: "92998-3874",
+    geo: {
+      lat: "-37.3159",
+      lng: "81.1496",
+    },
+  },
+  phone: "1-770-736-8031 x56442",
+  website: "hildegard.org",
+  company: {
+    name: "Romaguera-Crona",
+    catchPhrase: "Multi-layered client-server neural-net",
+    bs: "harness real-time e-markets",
+  },
+};
+
+const apiUsageCode = `const response = await fetch(
+  "https://jsonplaceholder.typicode.com/users/1"
+);
+const user = await response.json();
+
+return <JsonInspector data={user} />;`;
+
 const installCommand =
   "bunx shadcn@latest add notinsect/varnus/json-inspector";
 
@@ -228,6 +259,54 @@ export default function JsonInspectorPage() {
               {type}
             </code>
           ))}
+        </div>
+      </section>
+
+      {/* Inspect an API response */}
+      <section className="scroll-mt-8" id="api-response">
+        <div className="mb-4">
+          <h2 className="text-xl font-semibold tracking-tight">
+            Inspect an API response
+          </h2>
+
+          <p className="mt-1 text-sm text-muted-foreground">
+            Pass any parsed API response directly to JsonInspector to explore
+            nested objects and arrays interactively.
+          </p>
+        </div>
+
+        <div className="flex flex-col gap-4">
+          <div className="rounded-xl border bg-muted/20 p-4 md:p-8">
+            <div className="mx-auto max-w-3xl">
+              <div className="mb-3 flex flex-wrap items-center gap-2 text-xs">
+                <span className="rounded bg-emerald-500/10 px-2 py-0.5 font-mono font-semibold text-emerald-600 dark:text-emerald-400">
+                  GET
+                </span>
+                <span className="font-mono text-muted-foreground break-all">
+                  jsonplaceholder.typicode.com/users/1
+                </span>
+              </div>
+
+              <JsonInspector data={apiUserData} defaultExpandedDepth={2} />
+            </div>
+          </div>
+
+          <CodeBlock copyValue={apiUsageCode}>{apiUsageCode}</CodeBlock>
+
+          <p className="text-xs leading-5 text-muted-foreground">
+            JsonInspector accepts <code>unknown</code>, so the parsed result from{" "}
+            <code>response.json()</code> can be passed directly to the component.
+            Sample data from{" "}
+            <a
+              href="https://jsonplaceholder.typicode.com/"
+              target="_blank"
+              rel="noreferrer"
+              className="font-medium text-foreground underline underline-offset-4 transition-colors hover:text-foreground/80"
+            >
+              JSONPlaceholder
+            </a>
+            .
+          </p>
         </div>
       </section>
 
