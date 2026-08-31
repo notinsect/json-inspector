@@ -29,7 +29,7 @@ const after = {
 };
 
 const installCommand =
-  "bunx shadcn@latest add notinsect/json-inspector/json-diff";
+  "bunx shadcn@latest add notinsect/varnus/json-diff";
 
 const usageCode = `import { JsonDiff } from "@/components/ui/json-diff"
 

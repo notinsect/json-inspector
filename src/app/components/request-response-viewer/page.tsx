@@ -116,8 +116,8 @@ export default function RequestResponseViewerPage() {
           </p>
         </div>
 
-        <CodeBlock copyValue="bunx shadcn@latest add notinsect/json-inspector/request-response-viewer">
-          bunx shadcn@latest add notinsect/json-inspector/request-response-viewer
+        <CodeBlock copyValue="bunx shadcn@latest add notinsect/varnus/request-response-viewer">
+          bunx shadcn@latest add notinsect/varnus/request-response-viewer
         </CodeBlock>
       </section>
 

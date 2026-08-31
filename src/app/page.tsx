@@ -25,7 +25,7 @@ export default function Home() {
           </Link>
 
           <a
-            href="https://github.com/notinsect/json-inspector"
+            href="https://github.com/notinsect/varnus"
             target="_blank"
             rel="noreferrer"
             className="inline-flex h-9 items-center gap-2 rounded-md border px-4 text-sm font-medium transition-colors hover:bg-muted"

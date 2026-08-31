@@ -11,7 +11,7 @@ Varnus is a growing collection of reusable [shadcn/ui](https://ui.shadcn.com/) c
 Interactive JSON and JavaScript object inspector with search, expandable nodes, copy actions, and circular reference detection.
 
 ```bash
-bunx shadcn@latest add notinsect/json-inspector/json-inspector
+bunx shadcn@latest add notinsect/varnus/json-inspector
 ```
 
 ### JSON Diff
@@ -19,7 +19,7 @@ bunx shadcn@latest add notinsect/json-inspector/json-inspector
 Expandable JSON and JavaScript diff viewer for shadcn/ui that highlights added, removed, modified, and unchanged values.
 
 ```bash
-bunx shadcn@latest add notinsect/json-inspector/json-diff
+bunx shadcn@latest add notinsect/varnus/json-diff
 ```
 
 ### Request / Response Viewer
@@ -27,7 +27,7 @@ bunx shadcn@latest add notinsect/json-inspector/json-diff
 Inspect HTTP requests and responses with headers, query parameters, structured bodies, status information, copy actions, and sensitive-value redaction.
 
 ```bash
-bunx shadcn@latest add notinsect/json-inspector/request-response-viewer
+bunx shadcn@latest add notinsect/varnus/request-response-viewer
 ```
 
 ![JSON Inspector](./public/json-inspector.png)
@@ -71,20 +71,22 @@ bunx shadcn@latest add notinsect/json-inspector/request-response-viewer
 Install directly using the shadcn CLI:
 
 ```bash
-bunx shadcn@latest add notinsect/json-inspector/json-inspector
+bunx shadcn@latest add notinsect/varnus/json-inspector
 ```
 
 Or with pnpm:
 
 ```bash
-pnpm dlx shadcn@latest add notinsect/json-inspector/json-inspector
+pnpm dlx shadcn@latest add notinsect/varnus/json-inspector
 ```
 
 Or npm:
 
 ```bash
-npx shadcn@latest add notinsect/json-inspector/json-inspector
+npx shadcn@latest add notinsect/varnus/json-inspector
 ```
+
+> Previous `notinsect/json-inspector` install URLs continue to redirect through GitHub, but new installations should use `notinsect/varnus`.
 
 The component will be added to your configured shadcn UI components directory.
 
@@ -233,8 +235,8 @@ This allows it to adapt automatically to your shadcn theme and dark mode.
 Clone the repository:
 
 ```bash
-git clone https://github.com/notinsect/json-inspector.git
-cd json-inspector
+git clone https://github.com/notinsect/varnus.git
+cd varnus
 ```
 
 Install dependencies:
@@ -265,10 +267,10 @@ bun run build
 
 This repository can be used directly as a shadcn GitHub registry.
 
-Install the component with:
+Install components with:
 
 ```bash
-bunx shadcn@latest add notinsect/json-inspector/json-inspector
+bunx shadcn@latest add notinsect/varnus/json-inspector
 ```
 
 The registry definition is available in [`registry.json`](./registry.json).

@@ -59,7 +59,7 @@ const demoData = {
 };
 
 const installCommand =
-  "bunx shadcn@latest add notinsect/json-inspector/json-inspector";
+  "bunx shadcn@latest add notinsect/varnus/json-inspector";
 
 const usageCode = `import { JsonInspector } from "@/components/ui/json-inspector"
 
